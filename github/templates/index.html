@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style1.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="bg-blue">
+            <div class="welcome-container">
+                <h1>Welcome</h1>
+                <h2>Select an Energy Sector</h2>
+                <div class="dropdown">
+                    <form action="{{ url_for('preprocessing')}}" method="post">
+                        <select class="dropbtn" name="selected_value">
+                            <option value="Coal Electric Power Sector CO2 Emissions">Coal Electric Power Sector CO2 Emissions</option>
+                            <option value="Natural Gas Electric Power Sector CO2 Emissions">Natural Gas Electric Power Sector CO2 Emissions</option>
+                            <option value="Distillate Fuel, Including Kerosene-Type Jet Fuel, Oil Electric Power Sector CO2 Emissions">Distillate Fuel, Including Kerosene-Type Jet Fuel, Oil Electric Power Sector CO2 Emissions</option>
+                            <option value="Petroleum Coke Electric Power Sector CO2 Emissions">Petroleum Coke Electric Power Sector CO2 Emissions</option>
+                            <option value="Residual Fuel Oil Electric Power Sector CO2 Emissions">Residual Fuel Oil Electric Power Sector CO2 Emissions</option>
+                            <option value="Petroleum Electric Power Sector CO2 Emissions">Petroleum Electric Power Sector CO2 Emissions</option>
+                            <option value="Geothermal Energy Electric Power Sector CO2 Emissions">Geothermal Energy Electric Power Sector CO2 Emissions</option>
+                            <option value="Non-Biomass Waste Electric Power Sector CO2 Emissions">Non-Biomass Waste Electric Power Sector CO2 Emissions</option>
+                            <option value="Total Energy Electric Power Sector CO2 Emissions">Total Energy Electric Power Sector CO2 Emissions</option>
+                        </select>
+                        <button type="submit" class="done-btn">Enter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

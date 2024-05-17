@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preprocessing</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style2.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="bg-image"></div>
+        <div class="preprocessing-container">
+            <h1>Preprocessing</h1>
+            <div class="welcome-container">
+                <img src="{{image_path[0]}}" alt="Plot">
+            </div>
+            <form action="{{ url_for('dashboard')}}">
+                <button class="next-btn">Next</button>
+            <form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style3.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="bg-image">
+            <div class="model-dropdown">
+                <h2>Pick Model</h2> 
+                <form id="modelForm" action="{{ url_for('dashboard') }}" method="post">
+                    <select name="selected_value">
+                        <option value="hybrid" {% if selected_value == 'hybrid' %}selected{% endif %}>HYBRID</option>
+                        <option value="arima" {% if selected_value == 'arima' %}selected{% endif %}>ARIMA</option>
+                        <option value="sarima" {% if selected_value == 'sarima' %}selected{% endif %}>SARIMA</option>
+                        <option value="prophet" {% if selected_value == 'prophet' %}selected{% endif %}>PROPHET</option>
+                        <option value="ann" {% if selected_value == 'ann' %}selected{% endif %}>ANN</option>
+                        <option value="ets" {% if selected_value == 'ets' %}selected{% endif %}>ETS</option>
+                        <option value="svr" {% if selected_value == 'svr' %}selected{% endif %}>SVR</option>
+                        <option value="lstm" {% if selected_value == 'lstm' %}selected{% endif %}>LSTM</option>
+                    </select>
+                    <button type="submit" class="done-btn">Enter</button>
+                </form>
+            </div>
+
+            <div class="metrics-container">
+                <h2>Metrics</h2>
+                <div id="metrics-content">
+                    RMSE: {{ rmse }}<br>
+                    RMSE Percentage: {{ rmsep }}
+                </div>
+            </div>
+
+            <div class="forecast-area">
+                <h2>Forecast</h2>
+                <div class="forecast-content">
+                    {% if image_path %}
+                        <img src="{{ image_path[0] }}" alt="Plot" style="max-width: 100%; max-height: 100%;">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="residuals-area">
+                <h2>Residuals</h2>
+                <div id="residuals-content">
+                    <!-- Residuals will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
